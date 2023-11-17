@@ -1,53 +1,44 @@
+package com.tictactoe;
+
+import com.tictactoe.printer.Printer;
+import com.tictactoe.printer.impl.PrinterImpl;
+
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        Printer printer = new PrinterImpl();
         byte input;
         byte rand;
         byte i;
         boolean boxAvailable = false;
         byte winner = 0;
         char box[] = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        System.out.println("Enter box number to select. Enjoy!\n");
+        printer.printStart();
 
         boolean boxEmpty = false;
         while (true) {
-            System.out.println("\n\n " + box[0] + " | " + box[1] + " | " + box[2] + " ");
-            System.out.println("-----------");
-            System.out.println(" " + box[3] + " | " + box[4] + " | " + box[5] + " ");
-            System.out.println("-----------");
-            System.out.println(" " + box[6] + " | " + box[7] + " | " + box[8] + " \n");
+            printer.printGameBoard(box);
             if(!boxEmpty){
                 for(i = 0; i < 9; i++)
                     box[i] = ' ';
                 boxEmpty = true;
             }
-
-            if(winner == 1){
-                System.out.println("You won the game!\nCreated by Shreyas Saha. Thanks for playing!");
-                break;
-            } else if(winner == 2){
-                System.out.println("You lost the game!\nCreated by Shreyas Saha. Thanks for playing!");
-                break;
-            } else if(winner == 3){
-                System.out.println("It's a draw!\nCreated by Shreyas Saha. Thanks for playing!");
-                break;
-            }
-
+            printer.printWinnerName(winner);
             while (true) {
                 input = scan.nextByte();
                 if (input > 0 && input < 10) {
                     if (box[input - 1] == 'X' || box[input - 1] == 'O')
-                        System.out.println("That one is already in use. Enter another.");
+                        printer.printRespondToAlreadyUsingSymbol();
                     else {
                         box[input - 1] = 'X';
                         break;
                     }
                 }
                 else
-                    System.out.println("Invalid input. Enter again.");
+                    printer.printRespondToInvalidSymbol();
             }
 
             if((box[0]=='X' && box[1]=='X' && box[2]=='X') || (box[3]=='X' && box[4]=='X' && box[5]=='X') || (box[6]=='X' && box[7]=='X' && box[8]=='X') ||
