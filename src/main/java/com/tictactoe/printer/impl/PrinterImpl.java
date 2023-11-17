@@ -15,12 +15,12 @@ public class PrinterImpl implements Printer {
     }
 
     @Override
-    public void printGameBoard(char[] box) {
-        System.out.println("\n\n " + box[0] + " | " + box[1] + " | " + box[2] + " ");
+    public void printGameBoard(char[] gameBoard) {
+        System.out.println("\n\n " + gameBoard[0] + " | " + gameBoard[1] + " | " + gameBoard[2] + " ");
         System.out.println("-----------");
-        System.out.println(" " + box[3] + " | " + box[4] + " | " + box[5] + " ");
+        System.out.println(" " + gameBoard[3] + " | " + gameBoard[4] + " | " + gameBoard[5] + " ");
         System.out.println("-----------");
-        System.out.println(" " + box[6] + " | " + box[7] + " | " + box[8] + " \n");
+        System.out.println(" " + gameBoard[6] + " | " + gameBoard[7] + " | " + gameBoard[8] + " \n");
     }
 
     @Override

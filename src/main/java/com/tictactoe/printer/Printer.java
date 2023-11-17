@@ -17,10 +17,10 @@ public interface Printer {
     /**
      * Method which print game board with info.
      *
-     * @param box Array with a game info.
+     * @param gameBoard Array with a game info.
      * @author Shalaiev Ivan
      */
-    void printGameBoard(char[] box);
+    void printGameBoard(char[] gameBoard);
 
     /**
      * Method to print a game winner.
