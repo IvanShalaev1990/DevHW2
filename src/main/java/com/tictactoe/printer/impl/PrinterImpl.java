@@ -38,7 +38,7 @@ public class PrinterImpl implements Printer {
     }
 
     @Override
-    public void printRespondToAlreadyUsingSymbol() {
+    public void printRespondToAlreadyUsingCell() {
         System.out.println("That one is already in use. Enter another.");
     }
 }

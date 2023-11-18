@@ -29,16 +29,18 @@ public interface Printer {
      * @author Shalaiev Ivan
      */
     void printWinnerName(int winner);
+
     /**
      * Method which print message when invalid symbol was pressed.
      *
      * @author Shalaiev Ivan
      */
     void printRespondToInvalidSymbol();
+
     /**
      * Method which print message when a symbol already in use.
      *
      * @author Shalaiev Ivan
      */
-    void printRespondToAlreadyUsingSymbol();
+    void printRespondToAlreadyUsingCell();
 }
