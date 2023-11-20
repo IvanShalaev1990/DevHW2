@@ -2,8 +2,6 @@ package com.tictactoe.logic;
 
 import com.tictactoe.printer.Printer;
 
-import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Interface app's logic.
@@ -13,13 +11,6 @@ import java.util.Scanner;
  */
 public interface Logic {
     /**
-     * Method to clean all info in gameBoard.
-     *
-     * @param gameBoard Array with a game info.
-     */
-    void cleanGameBoard(char[] gameBoard);
-
-    /**
      * Method to find winner.
      *
      * @param gameBoard Array with a game info.
@@ -27,25 +18,37 @@ public interface Logic {
     byte toFindWinner(char[] gameBoard, boolean isGameBoardAvailable);
 
     /**
-     * Method to read user's input.
+     * Method to verify user input.
      *
-     * @param scanner User input.
+     * @param input     User input.
+     * @param gameBoard gameBoard Array with a game info.
+     * @param printer   Print message if user input is incorrect.
+     * @return Is user input correct.
      */
-    void userInput(Scanner scanner, char[] gameBoard, Printer printer);
+    boolean verifyUserInput(byte input, char[] gameBoard, Printer printer);
 
     /**
-     * Method to computer selection calculations.
+     * Method to verify comp input.
      *
-     * @param random    Computer input.
+     * @param compInput Computer input.
      * @param gameBoard Array with a game info.
+     * @return Is comp input correct.
      */
-    void compInput(Random random, char[] gameBoard);
+    boolean verifyCompInput(int compInput, char[] gameBoard);
 
     /**
-     * Method shows is a free space on a board.
+     * Method to compute is a comp win.
      *
      * @param gameBoard Array with a game info.
-     * @return is game board available.
+     * @return Is comp win.
      */
-    boolean isGameBoardAvailable(char[] gameBoard);
+    boolean compWin(char[] gameBoard);
+
+    /**
+     * Method to compute is a user win.
+     *
+     * @param gameBoard Array with a game info.
+     * @return Is comp user.
+     */
+    boolean userWin(char[] gameBoard);
 }
